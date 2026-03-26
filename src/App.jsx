@@ -34,7 +34,7 @@ const SocialIcons = {
 const profile = {
   name: 'Jhoni Costa',
   role: 'Desenvolvedor de software',
-  headline: 'Construo experiencias digitais modernas com codigo limpo, foco no produto e atencao aos detalhes.',
+  headline: 'Construo experiencias digitais modernas com codigo limpo, foco no produto e atenção aos detalhes.',
   about:
     'Atuo no desenvolvimento de interfaces e aplicacoes web que unem performance, manutencao simples e uma experiencia consistente para quem usa e para quem evolui o produto.',
   email: 'mailto:jrscdev@gmail.com',
@@ -78,24 +78,24 @@ const services = [
 ]
 
 const techStack = [
-  { name: 'PHP',        icon: <SiPhp />,        color: '#777BB4' },
-  { name: 'Laravel',    icon: <SiLaravel />,    color: '#FF2D20' },
+  { name: 'PHP', icon: <SiPhp />, color: '#777BB4' },
+  { name: 'Laravel', icon: <SiLaravel />, color: '#FF2D20' },
   { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
-  { name: 'React',      icon: <SiReact />,      color: '#61DAFB' },
-  { name: 'Python',     icon: <SiPython />,     color: '#3776AB' },
-  { name: 'MySQL',      icon: <SiMysql />,      color: '#4479A1' },
+  { name: 'React', icon: <SiReact />, color: '#61DAFB' },
+  { name: 'Python', icon: <SiPython />, color: '#3776AB' },
+  { name: 'MySQL', icon: <SiMysql />, color: '#4479A1' },
   { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791' },
 ]
 
 const toolStack = [
-  { name: 'GitHub',   icon: <SiGithub />,     color: '#24292E' },
-  { name: 'Git',      icon: <SiGit />,        color: '#F05032' },
-  { name: 'ClickUp',  icon: <SiClickup />,    color: '#7B68EE' },
-  { name: 'Cursor',   icon: <TbCursorText />, color: '#6366F1' },
-  { name: 'Figma',    icon: <SiFigma />,      color: '#F24E1E' },
-  { name: 'Docker',   icon: <SiDocker />,     color: '#2496ED' },
-  { name: 'Postman',  icon: <SiPostman />,    color: '#FF6C37' },
-  { name: 'Linear',   icon: <SiLinear />,     color: '#5E6AD2' },
+  { name: 'GitHub', icon: <SiGithub />, color: '#24292E' },
+  { name: 'Git', icon: <SiGit />, color: '#F05032' },
+  { name: 'ClickUp', icon: <SiClickup />, color: '#7B68EE' },
+  { name: 'Cursor', icon: <TbCursorText />, color: '#6366F1' },
+  { name: 'Figma', icon: <SiFigma />, color: '#F24E1E' },
+  { name: 'Docker', icon: <SiDocker />, color: '#2496ED' },
+  { name: 'Postman', icon: <SiPostman />, color: '#FF6C37' },
+  { name: 'Linear', icon: <SiLinear />, color: '#5E6AD2' },
 ]
 
 const Logo = () => (
@@ -114,147 +114,146 @@ const Logo = () => (
 function App() {
   return (
     <div className="layout-root">
-    <header className="site-header">
-      <a className="header-brand" href="#" aria-label="JRSC DEV - início">
-        <Logo />
-        <span className="header-brand-name">JRSC <span className="header-brand-accent">DEV</span></span>
-      </a>
-      <nav className="header-nav" aria-label="Navegação principal">
-        <a className="header-nav-link" href="#servicos">Serviços</a>
-        <a className="header-nav-link" href="#stack">Stack</a>
-        <a className="header-nav-link header-nav-cta" href={profile.email}>Contato</a>
-      </nav>
-    </header>
-    <main className="page-shell">
-      <section className="hero-section">
-        <div className="hero-copy">
-          <span className="eyebrow">{profile.role}</span>
-          <p className="nameplate">{profile.name}</p>
-          <h1>{profile.headline}</h1>
-          <p className="lead">{profile.about}</p>
-          <div className="hero-actions">
-            <a className="primary-action" href={profile.email}>
-              Falar sobre projeto
-            </a>
-            <a
-              className="secondary-action"
-              href={profile.links[0].href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ver GitHub
-            </a>
+      <header className="site-header">
+        <a className="header-brand" href="#" aria-label="JRSC DEV - início">
+          <Logo />
+          <span className="header-brand-name">JRSC <span className="header-brand-accent">DEV</span></span>
+        </a>
+        <nav className="header-nav" aria-label="Navegação principal">
+          <a className="header-nav-link" href="#servicos">Serviços</a>
+          <a className="header-nav-link" href="#stack">Stack</a>
+          <a className="header-nav-link header-nav-cta" href={profile.email}>Contato</a>
+        </nav>
+      </header>
+      <main className="page-shell">
+        <section className="hero-section">
+          <div className="hero-copy">
+            <span className="eyebrow">{profile.role}</span>
+            <p className="nameplate">{profile.name}</p>
+            <h1>{profile.headline}</h1>
+            <p className="lead">{profile.about}</p>
+            <div className="hero-actions">
+              <a className="primary-action" href={profile.email}>
+                Falar sobre projeto
+              </a>
+              <a
+                className="secondary-action"
+                href={profile.links[0].href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Ver GitHub
+              </a>
+            </div>
+            <ul className="highlight-list" aria-label="Principais competencias">
+              {highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
-          <ul className="highlight-list" aria-label="Principais competencias">
-            {highlights.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
 
-        <aside className="hero-panel" aria-label="Resumo profissional">
-          <div className="panel-badge">Disponivel para novos projetos</div>
-          <div className="intro-card">
-            <span>Perfil</span>
-            <p>
-              Desenvolvedor focado em criar produtos web com visual profissional,
-              implementacao consistente e atencao real ao que faz diferenca para o usuario.
-            </p>
+          <aside className="hero-panel" aria-label="Resumo profissional">
+            <div className="panel-badge">Disponivel para novos projetos</div>
+            <div className="intro-card">
+              <span>Perfil</span>
+              <p>
+                Desenvolvedor full stack com mais de 6 anos de experiência e pós-graduação em Engenharia de Software e de Dados. Transformo ideias em produtos digitais com foco em performance, usabilidade e entregas preparadas para crescer.
+              </p>
+            </div>
+            <div className="panel-grid">
+              {metrics.map((metric) => (
+                <article key={metric.label} className="metric-card">
+                  <strong>{metric.value}</strong>
+                  <span>{metric.label}</span>
+                </article>
+              ))}
+            </div>
+            <div className="signal-card">
+              <p>Assinatura profissional</p>
+              <h2>Codigo bem pensado, interfaces bem resolvidas e entregas com direcao.</h2>
+            </div>
+          </aside>
+        </section>
+
+        <section id="servicos" className="content-section">
+          <div className="section-heading">
+            <span className="section-kicker">Servicos</span>
+            <h2>Como eu trabalho para entregar software com mais impacto</h2>
           </div>
-          <div className="panel-grid">
-            {metrics.map((metric) => (
-              <article key={metric.label} className="metric-card">
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
+          <div className="services-grid">
+            {services.map((service) => (
+              <article key={service.title} className="service-card">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
               </article>
             ))}
           </div>
-          <div className="signal-card">
-            <p>Assinatura profissional</p>
-            <h2>Codigo bem pensado, interfaces bem resolvidas e entregas com direcao.</h2>
+        </section>
+
+        <section id="stack" className="content-section stack-section">
+          <div className="section-heading">
+            <span className="section-kicker">Stack</span>
+            <h2>Ferramentas e tecnologias que fazem parte do meu processo</h2>
           </div>
-        </aside>
-      </section>
 
-      <section id="servicos" className="content-section">
-        <div className="section-heading">
-          <span className="section-kicker">Servicos</span>
-          <h2>Como eu trabalho para entregar software com mais impacto</h2>
-        </div>
-        <div className="services-grid">
-          {services.map((service) => (
-            <article key={service.title} className="service-card">
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="stack" className="content-section stack-section">
-        <div className="section-heading">
-          <span className="section-kicker">Stack</span>
-          <h2>Ferramentas e tecnologias que fazem parte do meu processo</h2>
-        </div>
-
-        <div className="stack-group">
-          <span className="stack-group-label">Linguagens &amp; Frameworks</span>
-          <div className="stack-cloud">
-            {techStack.map((tech) => (
-              <span key={tech.name} className="stack-pill">
-                <span className="stack-icon" style={{ color: tech.color }}>
-                  {tech.icon}
+          <div className="stack-group">
+            <span className="stack-group-label">Linguagens &amp; Frameworks</span>
+            <div className="stack-cloud">
+              {techStack.map((tech) => (
+                <span key={tech.name} className="stack-pill">
+                  <span className="stack-icon" style={{ color: tech.color }}>
+                    {tech.icon}
+                  </span>
+                  {tech.name}
                 </span>
-                {tech.name}
-              </span>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="stack-group">
-          <span className="stack-group-label">Ferramentas</span>
-          <div className="stack-cloud">
-            {toolStack.map((tool) => (
-              <span key={tool.name} className="stack-pill">
-                <span className="stack-icon" style={{ color: tool.color }}>
-                  {tool.icon}
+          <div className="stack-group">
+            <span className="stack-group-label">Ferramentas</span>
+            <div className="stack-cloud">
+              {toolStack.map((tool) => (
+                <span key={tool.name} className="stack-pill">
+                  <span className="stack-icon" style={{ color: tool.color }}>
+                    {tool.icon}
+                  </span>
+                  {tool.name}
                 </span>
-                {tool.name}
-              </span>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="content-section contact-section">
-        <div>
-          <span className="section-kicker">Contato</span>
-          <h2>Se voce precisa de um desenvolvedor para tirar um projeto do papel, vamos conversar.</h2>
-        </div>
-        <a className="primary-action" href={profile.email}>
-          Entrar em contato
-        </a>
-      </section>
-    </main>
-
-    <footer className="site-footer">
-      <span className="footer-name">{profile.name}</span>
-      <nav className="footer-links" aria-label="Redes sociais e contato">
-        {profile.links.map((link) => (
-          <a
-            key={link.label}
-            className="footer-link"
-            href={link.href}
-            target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-            rel={link.href.startsWith('mailto:') ? undefined : 'noreferrer'}
-            aria-label={link.label}
-          >
-            <span className="footer-icon">{SocialIcons[link.shortLabel]}</span>
-            <span className="footer-link-label">{link.label}</span>
+        <section className="content-section contact-section">
+          <div>
+            <span className="section-kicker">Contato</span>
+            <h2>Se voce precisa de um desenvolvedor para tirar um projeto do papel, vamos conversar.</h2>
+          </div>
+          <a className="primary-action" href={profile.email}>
+            Entrar em contato
           </a>
-        ))}
-      </nav>
-    </footer>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <span className="footer-name">{profile.name}</span>
+        <nav className="footer-links" aria-label="Redes sociais e contato">
+          {profile.links.map((link) => (
+            <a
+              key={link.label}
+              className="footer-link"
+              href={link.href}
+              target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+              rel={link.href.startsWith('mailto:') ? undefined : 'noreferrer'}
+              aria-label={link.label}
+            >
+              <span className="footer-icon">{SocialIcons[link.shortLabel]}</span>
+              <span className="footer-link-label">{link.label}</span>
+            </a>
+          ))}
+        </nav>
+      </footer>
     </div>
   )
 }
