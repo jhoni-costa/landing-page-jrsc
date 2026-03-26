@@ -1,4 +1,4 @@
-# Landing Page de Desenvolvedor
+# Minha Landing Page de Desenvolvedor de Software
 
 Landing page em React com Vite para apresentar perfil profissional, especialidades e stack de desenvolvimento.
 
@@ -15,7 +15,7 @@ Landing page em React com Vite para apresentar perfil profissional, especialidad
 - `npm run preview`: visualiza o build localmente
 - `npm run lint`: executa a analise estatica
 
-## Personalizacao
+## Personalizacao, para clonagem do repositório.
 
 Edite os textos de perfil, links de contato e indicadores em `src/App.jsx` para refletir seu nome, portfolio, GitHub, LinkedIn e experiencia real.
 

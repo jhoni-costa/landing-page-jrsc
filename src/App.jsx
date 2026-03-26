@@ -98,9 +98,33 @@ const toolStack = [
   { name: 'Linear',   icon: <SiLinear />,     color: '#5E6AD2' },
 ]
 
+const Logo = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <rect width="32" height="32" rx="10" fill="url(#logo-gradient)" />
+    <text x="16" y="22" textAnchor="middle" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="13" fill="#ffffff" letterSpacing="-0.5">JR</text>
+    <defs>
+      <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#0ea5e9" />
+        <stop offset="1" stopColor="#0284c7" />
+      </linearGradient>
+    </defs>
+  </svg>
+)
+
 function App() {
   return (
     <div className="layout-root">
+    <header className="site-header">
+      <a className="header-brand" href="#" aria-label="JRSC DEV - início">
+        <Logo />
+        <span className="header-brand-name">JRSC <span className="header-brand-accent">DEV</span></span>
+      </a>
+      <nav className="header-nav" aria-label="Navegação principal">
+        <a className="header-nav-link" href="#servicos">Serviços</a>
+        <a className="header-nav-link" href="#stack">Stack</a>
+        <a className="header-nav-link header-nav-cta" href={profile.email}>Contato</a>
+      </nav>
+    </header>
     <main className="page-shell">
       <section className="hero-section">
         <div className="hero-copy">
@@ -152,7 +176,7 @@ function App() {
         </aside>
       </section>
 
-      <section className="content-section">
+      <section id="servicos" className="content-section">
         <div className="section-heading">
           <span className="section-kicker">Servicos</span>
           <h2>Como eu trabalho para entregar software com mais impacto</h2>
@@ -167,7 +191,7 @@ function App() {
         </div>
       </section>
 
-      <section className="content-section stack-section">
+      <section id="stack" className="content-section stack-section">
         <div className="section-heading">
           <span className="section-kicker">Stack</span>
           <h2>Ferramentas e tecnologias que fazem parte do meu processo</h2>
