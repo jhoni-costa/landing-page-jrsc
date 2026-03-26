@@ -34,9 +34,9 @@ const SocialIcons = {
 const profile = {
   name: 'Jhoni Costa',
   role: 'Desenvolvedor de software',
-  headline: 'Construo experiencias digitais modernas com codigo limpo, foco no produto e atenção aos detalhes.',
+  headline: 'Construo experiências digitais modernas e de alta performance, com código limpo, foco no produto e atenção aos detalhes.',
   about:
-    'Atuo no desenvolvimento de interfaces e aplicacoes web que unem performance, manutencao simples e uma experiencia consistente para quem usa e para quem evolui o produto.',
+    'Atuo no desenvolvimento de interfaces e aplicações web que unem performance, manutenção simples e uma experiência consistente para quem usa e para quem evolui o produto.',
   email: 'mailto:jrscdev@gmail.com',
   links: [
     { label: 'GitHub', href: 'https://github.com', shortLabel: 'github' },
@@ -49,31 +49,31 @@ const profile = {
 
 const highlights = [
   'React com foco em usabilidade',
-  'Codigo limpo e manutencao previsivel',
-  'Entrega alinhada a objetivo de negocio',
+  'Código limpo e manutenção previsível',
+  'Entrega alinhada a objetivo de negócio',
 ]
 
 const metrics = [
-  { value: 'Front-end', label: 'experiencias modernas em React.js' },
-  { value: 'Back-end', label: 'integracoes e APIs para produtos digitais' },
-  { value: 'Produto', label: 'tecnica com visao pratica de entrega' },
+  { value: 'Front-end', label: 'experiências modernas em React.js' },
+  { value: 'Back-end', label: 'integrações e APIs para produtos digitais' },
+  { value: 'Produto', label: 'técnica com visão prática de entrega' },
 ]
 
 const services = [
   {
     title: 'Interfaces que comunicam valor',
     description:
-      'Desenvolvo interfaces com hierarquia visual clara, responsividade e consistencia para transformar requisitos em experiencias profissionais.',
+      'Desenvolvo interfaces com hierarquia visual clara, responsividade e consistência para transformar requisitos em experiências profissionais.',
   },
   {
-    title: 'Base solida para crescer',
+    title: 'Base sólida para crescer',
     description:
-      'Estruturo o projeto para facilitar evolucao, com organizacao de codigo, reaproveitamento de componentes e boas praticas de desenvolvimento.',
+      'Estruturo o projeto para facilitar evolução, com organização de código, reaproveitamento de componentes e boas práticas de desenvolvimento.',
   },
   {
-    title: 'Comunicacao tecnica objetiva',
+    title: 'Comunicação técnica objetiva',
     description:
-      'Traduzo necessidades do produto em decisoes tecnicas claras para acelerar a execucao e reduzir retrabalho.',
+      'Traduzo necessidades do produto em decisões técnicas claras para acelerar a execução e reduzir retrabalho.',
   },
 ]
 
