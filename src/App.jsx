@@ -34,10 +34,11 @@ const SocialIcons = {
 const profile = {
   name: 'Jhoni Costa',
   role: 'Desenvolvedor de software',
-  headline: 'Construo experiências digitais modernas e de alta performance, com código limpo, foco no produto e atenção aos detalhes.',
+  headline: 'Desenvolvimento de sistemas e aplicações web que aumentam sua eficiência e escalam seu negócio.',
   about:
-    'Atuo no desenvolvimento de interfaces e aplicações web que unem performance, manutenção simples e uma experiência consistente para quem usa e para quem evolui o produto.',
+    'Transformo ideias em produtos digitais prontos para gerar resultado, com entregas ágeis, comunicação clara e arquitetura preparada para crescer.',
   email: 'mailto:jrscdev@gmail.com',
+  whatsapp: 'https://wa.me/5541999440442',
   links: [
     { label: 'GitHub', href: 'https://github.com', shortLabel: 'github' },
     { label: 'WhatsApp', href: 'https://wa.me/5541999440442', shortLabel: 'whatsapp' },
@@ -48,33 +49,102 @@ const profile = {
 }
 
 const highlights = [
-  'React com foco em usabilidade',
-  'Código limpo e manutenção previsível',
-  'Entrega alinhada a objetivo de negócio',
+  'Foco em resultado de negócio, não só em código',
+  'Entrega rápida com processo organizado',
+  'Qualidade técnica para escalar sem retrabalho',
 ]
 
 const metrics = [
-  { value: 'Front-end', label: 'experiências modernas em React.js' },
-  { value: 'Back-end', label: 'integrações e APIs para produtos digitais' },
-  { value: 'Produto', label: 'técnica com visão prática de entrega' },
+  { value: '+6 anos', label: 'de experiência prática em produtos digitais' },
+  { value: '+40 projetos', label: 'entregues entre sites, sistemas e integrações' },
+  { value: '12+ tecnologias', label: 'dominadas entre front-end, back-end e DevOps' },
+]
+
+const valueProps = [
+  {
+    title: 'Código limpo e escalável',
+    description: 'Estrutura organizada para facilitar evolução, manutenção e crescimento do seu produto.',
+  },
+  {
+    title: 'Foco em resultado, não só em código',
+    description: 'Cada decisão técnica é pensada para melhorar eficiência, experiência e conversão.',
+  },
+  {
+    title: 'Entrega rápida e organizada',
+    description: 'Processo claro, prioridades definidas e comunicação objetiva em cada etapa.',
+  },
+  {
+    title: 'Experiência real de mercado',
+    description: 'Atuação em diferentes cenários com visão prática para sair da ideia e chegar ao lançamento.',
+  },
 ]
 
 const services = [
   {
-    title: 'Interfaces que comunicam valor',
+    title: 'Landing pages que convertem',
     description:
-      'Desenvolvo interfaces com hierarquia visual clara, responsividade e consistência para transformar requisitos em experiências profissionais.',
+      'Crio páginas com proposta clara, estrutura de persuasão e CTA forte para aumentar contatos e oportunidades de venda.',
   },
   {
-    title: 'Base sólida para crescer',
+    title: 'Sistemas web sob medida',
     description:
-      'Estruturo o projeto para facilitar evolução, com organização de código, reaproveitamento de componentes e boas práticas de desenvolvimento.',
+      'Desenvolvo plataformas personalizadas para automatizar rotinas, reduzir retrabalho e aumentar produtividade.',
   },
   {
-    title: 'Comunicação técnica objetiva',
+    title: 'APIs e integrações',
     description:
-      'Traduzo necessidades do produto em decisões técnicas claras para acelerar a execução e reduzir retrabalho.',
+      'Conecto sistemas e serviços para centralizar dados e tornar seu fluxo mais rápido e confiável.',
   },
+  {
+    title: 'Otimização de performance',
+    description:
+      'Melhoro velocidade, estabilidade e experiência para reduzir abandono e aumentar retenção de usuários.',
+  },
+  {
+    title: 'Correção de bugs e manutenção',
+    description:
+      'Resolvo gargalos técnicos com prioridade e previsibilidade para manter o produto operando com segurança.',
+  },
+]
+
+const testimonials = [
+  {
+    quote: 'A entrega foi rápida, organizada e com excelente padrão de qualidade. O projeto subiu de nível.',
+    author: 'Cliente de sistema interno',
+  },
+  {
+    quote: 'Conseguimos transformar uma ideia em produto funcional com clareza de escopo e ótima comunicação.',
+    author: 'Fundador de startup',
+  },
+  {
+    quote: 'Além de desenvolver, ajudou nas decisões de produto e melhorou muito nossa eficiência operacional.',
+    author: 'Gestor de operações',
+  },
+]
+
+const projects = [
+  {
+    title: 'Plataforma de gestão comercial',
+    summary: 'Sistema web para controle de clientes, propostas e indicadores em tempo real.',
+    result: 'Redução de retrabalho e ganho de produtividade no time comercial.',
+  },
+  {
+    title: 'Landing de captação para serviço B2B',
+    summary: 'Página focada em conversão com copy estratégica, formulário otimizado e carregamento rápido.',
+    result: 'Aumento na geração de leads qualificados com menor custo por contato.',
+  },
+  {
+    title: 'Integração entre CRM e ERP',
+    summary: 'Automação de fluxo de dados entre plataformas para eliminar processos manuais.',
+    result: 'Mais confiabilidade nas informações e decisões mais rápidas.',
+  },
+]
+
+const offerItems = [
+  'Criação de landing page profissional em até 5 dias',
+  'Design moderno com foco em conversão',
+  'Código otimizado e pronto para escalar',
+  'Integração com formulário, WhatsApp e analytics',
 ]
 
 const techStack = [
@@ -121,20 +191,22 @@ function App() {
         </a>
         <nav className="header-nav" aria-label="Navegação principal">
           <a className="header-nav-link" href="#servicos">Serviços</a>
-          <a className="header-nav-link" href="#stack">Stack</a>
-          <a className="header-nav-link header-nav-cta" href={profile.email}>Contato</a>
+          <a className="header-nav-link" href="#provas">Provas</a>
+          <a className="header-nav-link" href="#oferta">Oferta</a>
+          <a className="header-nav-link header-nav-cta" href={profile.whatsapp} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
         </nav>
       </header>
+
       <main className="page-shell">
-        <section className="hero-section">
+        <section className="hero-section" id="inicio">
           <div className="hero-copy">
             <span className="eyebrow">{profile.role}</span>
             <p className="nameplate">{profile.name}</p>
             <h1>{profile.headline}</h1>
             <p className="lead">{profile.about}</p>
             <div className="hero-actions">
-              <a className="primary-action" href={profile.email}>
-                Falar sobre projeto
+              <a className="primary-action" href={profile.whatsapp} target="_blank" rel="noreferrer">
+                Quero tirar meu projeto do papel
               </a>
               <a
                 className="secondary-action"
@@ -142,10 +214,10 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Ver GitHub
+                Solicitar orçamento
               </a>
             </div>
-            <ul className="highlight-list" aria-label="Principais competencias">
+            <ul className="highlight-list" aria-label="Principais competências">
               {highlights.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -153,7 +225,7 @@ function App() {
           </div>
 
           <aside className="hero-panel" aria-label="Resumo profissional">
-            <div className="panel-badge">Disponivel para novos projetos</div>
+            <div className="panel-badge">Disponível para novos projetos</div>
             <div className="intro-card">
               <span>Perfil</span>
               <p>
@@ -161,24 +233,43 @@ function App() {
               </p>
             </div>
             <div className="panel-grid">
-              {metrics.map((metric) => (
+              {metrics.map((metric, index) => (
                 <article key={metric.label} className="metric-card">
-                  <strong>{metric.value}</strong>
+                  <div className="metric-head">
+                    <span className="metric-index">{String(index + 1).padStart(2, '0')}</span>
+                    <strong>{metric.value}</strong>
+                  </div>
                   <span>{metric.label}</span>
                 </article>
               ))}
             </div>
             <div className="signal-card">
               <p>Assinatura profissional</p>
-              <h2>Codigo bem pensado, interfaces bem resolvidas e entregas com direcao.</h2>
+              <h2>Menos complexidade, mais entrega e mais resultado para o seu negócio.</h2>
             </div>
           </aside>
         </section>
 
+        <section id="proposta" className="content-section">
+          <div className="section-heading">
+            <span className="section-kicker">Proposta de valor</span>
+            <h2>Por que trabalhar comigo?</h2>
+          </div>
+          <div className="value-grid">
+            {valueProps.map((item) => (
+              <article key={item.title} className="value-card">
+                <span className="value-icon" aria-hidden="true">✓</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="servicos" className="content-section">
           <div className="section-heading">
-            <span className="section-kicker">Servicos</span>
-            <h2>Como eu trabalho para entregar software com mais impacto</h2>
+            <span className="section-kicker">Serviços</span>
+            <h2>O que eu posso fazer por você para acelerar resultado</h2>
           </div>
           <div className="services-grid">
             {services.map((service) => (
@@ -188,12 +279,56 @@ function App() {
               </article>
             ))}
           </div>
+          <div className="inline-cta">
+            <a className="primary-action" href={profile.whatsapp} target="_blank" rel="noreferrer">Falar comigo no WhatsApp</a>
+          </div>
+        </section>
+
+        <section id="provas" className="content-section">
+          <div className="section-heading">
+            <span className="section-kicker">Prova social</span>
+            <h2>Resultados e feedbacks que geram confiança para o seu projeto</h2>
+          </div>
+
+          <div className="proof-grid">
+            {metrics.map((metric) => (
+              <article key={metric.value} className="proof-number-card">
+                <strong>{metric.value}</strong>
+                <span>{metric.label}</span>
+              </article>
+            ))}
+          </div>
+
+          <div className="testimonial-grid">
+            {testimonials.map((item) => (
+              <article key={item.author} className="testimonial-card">
+                <p>“{item.quote}”</p>
+                <span>{item.author}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="projetos" className="content-section">
+          <div className="section-heading">
+            <span className="section-kicker">Projetos</span>
+            <h2>Exemplos de soluções aplicadas em cenários reais</h2>
+          </div>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <article key={project.title} className="project-card">
+                <h3>{project.title}</h3>
+                <p>{project.summary}</p>
+                <strong>{project.result}</strong>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section id="stack" className="content-section stack-section">
           <div className="section-heading">
             <span className="section-kicker">Stack</span>
-            <h2>Ferramentas e tecnologias que fazem parte do meu processo</h2>
+            <h2>Tecnologias que sustentam entregas rápidas e consistentes</h2>
           </div>
 
           <div className="stack-group">
@@ -225,16 +360,45 @@ function App() {
           </div>
         </section>
 
+        <section id="sobre" className="content-section story-section">
+          <div className="section-heading">
+            <span className="section-kicker">Storytelling</span>
+            <h2>Seu projeto merece mais do que só código</h2>
+          </div>
+          <p className="story-copy">
+            Mais do que programar, meu trabalho é transformar objetivos de negócio em produto digital funcional, rápido e sustentável. Eu entro para organizar o caminho, reduzir riscos técnicos e acelerar a entrega de valor real para sua empresa.
+          </p>
+        </section>
+
+        <section id="oferta" className="content-section offer-section">
+          <div className="section-heading">
+            <span className="section-kicker">Oferta</span>
+            <h2>Criação de landing page profissional em até 5 dias</h2>
+          </div>
+          <ul className="offer-list" aria-label="Benefícios da oferta">
+            {offerItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <div className="inline-cta">
+            <a className="primary-action" href={profile.whatsapp} target="_blank" rel="noreferrer">Quero solicitar orçamento</a>
+          </div>
+        </section>
+
         <section className="content-section contact-section">
           <div>
             <span className="section-kicker">Contato</span>
-            <h2>Se voce precisa de um desenvolvedor para tirar um projeto do papel, vamos conversar.</h2>
+            <h2>Pronto para tirar sua ideia do papel com velocidade e qualidade?</h2>
           </div>
-          <a className="primary-action" href={profile.email}>
-            Entrar em contato
+          <a className="primary-action" href={profile.whatsapp} target="_blank" rel="noreferrer">
+            Falar comigo no WhatsApp
           </a>
         </section>
       </main>
+
+      <a className="mobile-cta" href={profile.whatsapp} target="_blank" rel="noreferrer">
+        Falar no WhatsApp
+      </a>
 
       <footer className="site-footer">
         <span className="footer-name">{profile.name}</span>
