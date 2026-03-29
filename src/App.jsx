@@ -40,10 +40,10 @@ const profile = {
   email: 'mailto:jrscdev@gmail.com',
   whatsapp: 'https://wa.me/5541999440442',
   links: [
-    { label: 'GitHub', href: 'https://github.com', shortLabel: 'github' },
+    { label: 'GitHub', href: 'https://github.com/jhoni-costa', shortLabel: 'github' },
     { label: 'WhatsApp', href: 'https://wa.me/5541999440442', shortLabel: 'whatsapp' },
-    { label: 'Instagram', href: 'https://instagram.com', shortLabel: 'instagram' },
-    { label: 'X', href: 'https://x.com', shortLabel: 'x' },
+    { label: 'Instagram', href: 'https://instagram.com/jhoni_rsouza', shortLabel: 'instagram' },
+    { label: 'X', href: 'https://x.com/RegisJhoni', shortLabel: 'x' },
     { label: 'Email', href: 'mailto:jrscdev@gmail.com', shortLabel: 'email' },
   ],
 }
