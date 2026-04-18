@@ -237,7 +237,7 @@ function App() {
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Alternar modo escuro">
             {theme === 'light' ? <MdOutlineDarkMode className="theme-toggle-icon" /> : <MdOutlineLightMode className="theme-toggle-icon" />}
           </button>
-          <a className="header-nav-link header-nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+          {/* <a className="header-nav-link header-nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a> */}
         </nav>
       </header>
 
@@ -324,9 +324,7 @@ function App() {
               </article>
             ))}
           </div>
-          <div className="inline-cta">
-            <a className="primary-action" href={whatsappUrl} target="_blank" rel="noreferrer">Falar comigo no WhatsApp</a>
-          </div>
+
         </section>
 
         <section id="provas" className="content-section reveal">
@@ -427,7 +425,10 @@ function App() {
             ))}
           </ul>
           <div className="inline-cta">
-            <a className="primary-action" href={whatsappUrl} target="_blank" rel="noreferrer">Quero solicitar orçamento</a>
+            <a className="primary-action" href={whatsappUrl} target="_blank" rel="noreferrer">
+              <span className="action-icon">{SocialIcons.whatsapp}</span>
+              Quero solicitar orçamento
+            </a>
           </div>
         </section>
 
@@ -437,13 +438,16 @@ function App() {
             <h2>Pronto para tirar sua ideia do papel com velocidade e qualidade?</h2>
           </div>
           <a className="primary-action" href={whatsappUrl} target="_blank" rel="noreferrer">
+            <span className="action-icon">{SocialIcons.whatsapp}</span>
             Falar comigo no WhatsApp
           </a>
         </section>
       </main>
 
-      <a className="mobile-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
-        Falar no WhatsApp
+      <a className="whatsapp-fab" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Falar no WhatsApp">
+        <span className="whatsapp-fab-icon">
+          {SocialIcons.whatsapp}
+        </span>
       </a>
 
       <footer className="site-footer">
