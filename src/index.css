@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
 
 :root {
-  color: #020617;
-  background:
-    radial-gradient(circle at 8% 8%, rgba(255, 106, 61, 0.12), transparent 26%),
-    radial-gradient(circle at 92% 4%, rgba(15, 76, 201, 0.1), transparent 24%),
-    linear-gradient(180deg, #ffffff 0%, #f6f8fe 52%, #eef2fb 100%);
+  --bg-main: #f7f8fc;
+  --surface: #ffffff;
+  --surface-soft: #f2f5fb;
+  --text-main: #131a2b;
+  --text-muted: #5b6478;
+  --line: #d7deeb;
+  --accent: #ff6a3d;
+  --accent-strong: #f24a14;
+  --accent-soft: #ffe3d8;
+  --brand: #0f4cc9;
+  --brand-soft: #dce9ff;
+
+  color: var(--text-main);
+  background: var(--bg-main);
   font-family: 'Manrope', 'Segoe UI', sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -13,6 +22,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root[data-theme='dark'] {
+  --bg-main: #0a0b0e;
+  --surface: #12141a;
+  --surface-soft: #1b1e26;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --line: #2d3340;
+  --accent: #ff7e5a;
+  --accent-strong: #f45e35;
+  --accent-soft: #3a221a;
+  --brand: #4a86ff;
+  --brand-soft: #1e293b;
 }
 
 * {

@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
 import { SiPhp, SiLaravel, SiJavascript, SiReact, SiMysql, SiPostgresql, SiPython, SiGithub, SiGit, SiClickup, SiFigma, SiDocker, SiPostman, SiLinear } from 'react-icons/si'
-import { TbCursorText } from 'react-icons/tb'
+import { TbCursorText, TbRocket, TbDeviceLaptop, TbPlug, TbGauge, TbBug } from 'react-icons/tb'
+import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import './App.css'
 
 const SocialIcons = {
@@ -82,26 +84,31 @@ const valueProps = [
 const services = [
   {
     title: 'Landing pages que convertem',
+    icon: <TbRocket />,
     description:
       'Crio páginas com proposta clara, estrutura de persuasão e CTA forte para aumentar contatos e oportunidades de venda.',
   },
   {
     title: 'Sistemas web sob medida',
+    icon: <TbDeviceLaptop />,
     description:
       'Desenvolvo plataformas personalizadas para automatizar rotinas, reduzir retrabalho e aumentar produtividade.',
   },
   {
     title: 'APIs e integrações',
+    icon: <TbPlug />,
     description:
       'Conecto sistemas e serviços para centralizar dados e tornar seu fluxo mais rápido e confiável.',
   },
   {
     title: 'Otimização de performance',
+    icon: <TbGauge />,
     description:
       'Melhoro velocidade, estabilidade e experiência para reduzir abandono e aumentar retenção de usuários.',
   },
   {
     title: 'Correção de bugs e manutenção',
+    icon: <TbBug />,
     description:
       'Resolvo gargalos técnicos com prioridade e previsibilidade para manter o produto operando com segurança.',
   },
@@ -125,16 +132,19 @@ const testimonials = [
 const projects = [
   {
     title: 'Plataforma de gestão comercial',
+    icon: <TbDeviceLaptop />,
     summary: 'Sistema web para controle de clientes, propostas e indicadores em tempo real.',
     result: 'Redução de retrabalho e ganho de produtividade no time comercial.',
   },
   {
     title: 'Landing de captação para serviço B2B',
+    icon: <TbRocket />,
     summary: 'Página focada em conversão com copy estratégica, formulário otimizado e carregamento rápido.',
     result: 'Aumento na geração de leads qualificados com menor custo por contato.',
   },
   {
     title: 'Integração entre CRM e ERP',
+    icon: <TbPlug />,
     summary: 'Automação de fluxo de dados entre plataformas para eliminar processos manuais.',
     result: 'Mais confiabilidade nas informações e decisões mais rápidas.',
   },
@@ -182,8 +192,39 @@ const Logo = () => (
 )
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+  })
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible')
+        }
+      })
+    }, { threshold: 0.1 })
+
+    const elements = document.querySelectorAll('.reveal')
+    elements.forEach(el => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light')
+  }
+
+  const whatsappMessage = encodeURIComponent('Olá Jhoni, vi seu site e gostaria de solicitar um orçamento para meu projeto.')
+  const whatsappUrl = `https://wa.me/5541999440442?text=${whatsappMessage}`
+
   return (
-    <div className="layout-root">
+    <div className="layout-root" data-theme={theme}>
       <header className="site-header">
         <a className="header-brand" href="#" aria-label="JRSC DEV - início">
           <Logo />
@@ -193,24 +234,27 @@ function App() {
           <a className="header-nav-link" href="#servicos">Serviços</a>
           <a className="header-nav-link" href="#provas">Provas</a>
           <a className="header-nav-link" href="#oferta">Oferta</a>
-          <a className="header-nav-link header-nav-cta" href={profile.whatsapp} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Alternar modo escuro">
+            {theme === 'light' ? <MdOutlineDarkMode className="theme-toggle-icon" /> : <MdOutlineLightMode className="theme-toggle-icon" />}
+          </button>
+          <a className="header-nav-link header-nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Falar no WhatsApp</a>
         </nav>
       </header>
 
       <main className="page-shell">
-        <section className="hero-section" id="inicio">
+        <section className="hero-section reveal" id="inicio">
           <div className="hero-copy">
             <span className="eyebrow">{profile.role}</span>
             <p className="nameplate">{profile.name}</p>
             <h1>{profile.headline}</h1>
             <p className="lead">{profile.about}</p>
             <div className="hero-actions">
-              <a className="primary-action" href={profile.whatsapp} target="_blank" rel="noreferrer">
+              <a className="primary-action" href={whatsappUrl} target="_blank" rel="noreferrer">
                 Quero tirar meu projeto do papel
               </a>
               <a
                 className="secondary-action"
-                href={profile.links[0].href}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -218,13 +262,13 @@ function App() {
               </a>
             </div>
             <ul className="highlight-list" aria-label="Principais competências">
-              {highlights.map((item) => (
-                <li key={item}>{item}</li>
+              {highlights.map((item, idx) => (
+                <li key={item} className={`reveal reveal-delay-${(idx % 3) + 1}`}>{item}</li>
               ))}
             </ul>
           </div>
 
-          <aside className="hero-panel" aria-label="Resumo profissional">
+          <aside className="hero-panel reveal reveal-delay-2" aria-label="Resumo profissional">
             <div className="panel-badge">Disponível para novos projetos</div>
             <div className="intro-card">
               <span>Perfil</span>
@@ -234,7 +278,7 @@ function App() {
             </div>
             <div className="panel-grid">
               {metrics.map((metric, index) => (
-                <article key={metric.label} className="metric-card">
+                <article key={metric.label} className={`metric-card reveal reveal-delay-${index + 1}`}>
                   <div className="metric-head">
                     <span className="metric-index">{String(index + 1).padStart(2, '0')}</span>
                     <strong>{metric.value}</strong>
@@ -250,14 +294,14 @@ function App() {
           </aside>
         </section>
 
-        <section id="proposta" className="content-section">
+        <section id="proposta" className="content-section reveal">
           <div className="section-heading">
             <span className="section-kicker">Proposta de valor</span>
             <h2>Por que trabalhar comigo?</h2>
           </div>
           <div className="value-grid">
-            {valueProps.map((item) => (
-              <article key={item.title} className="value-card">
+            {valueProps.map((item, idx) => (
+              <article key={item.title} className={`value-card reveal reveal-delay-${(idx % 2) + 1}`}>
                 <span className="value-icon" aria-hidden="true">✓</span>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
@@ -266,33 +310,34 @@ function App() {
           </div>
         </section>
 
-        <section id="servicos" className="content-section">
+        <section id="servicos" className="content-section reveal">
           <div className="section-heading">
             <span className="section-kicker">Serviços</span>
             <h2>O que eu posso fazer por você para acelerar resultado</h2>
           </div>
           <div className="services-grid">
-            {services.map((service) => (
-              <article key={service.title} className="service-card">
+            {services.map((service, idx) => (
+              <article key={service.title} className={`service-card reveal reveal-delay-${(idx % 3) + 1}`}>
+                <span className="service-card-icon" style={{ fontSize: '1.5rem', color: 'var(--brand)', marginBottom: '1rem', display: 'block' }}>{service.icon}</span>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
               </article>
             ))}
           </div>
           <div className="inline-cta">
-            <a className="primary-action" href={profile.whatsapp} target="_blank" rel="noreferrer">Falar comigo no WhatsApp</a>
+            <a className="primary-action" href={whatsappUrl} target="_blank" rel="noreferrer">Falar comigo no WhatsApp</a>
           </div>
         </section>
 
-        <section id="provas" className="content-section">
+        <section id="provas" className="content-section reveal">
           <div className="section-heading">
             <span className="section-kicker">Prova social</span>
             <h2>Resultados e feedbacks que geram confiança para o seu projeto</h2>
           </div>
 
           <div className="proof-grid">
-            {metrics.map((metric) => (
-              <article key={metric.value} className="proof-number-card">
+            {metrics.map((metric, idx) => (
+              <article key={metric.value} className={`proof-number-card reveal reveal-delay-${(idx % 3) + 1}`}>
                 <strong>{metric.value}</strong>
                 <span>{metric.label}</span>
               </article>
@@ -300,8 +345,8 @@ function App() {
           </div>
 
           <div className="testimonial-grid">
-            {testimonials.map((item) => (
-              <article key={item.author} className="testimonial-card">
+            {testimonials.map((item, idx) => (
+              <article key={item.author} className={`testimonial-card reveal reveal-delay-${(idx % 3) + 1}`}>
                 <p>“{item.quote}”</p>
                 <span>{item.author}</span>
               </article>
@@ -309,14 +354,15 @@ function App() {
           </div>
         </section>
 
-        <section id="projetos" className="content-section">
+        <section id="projetos" className="content-section reveal">
           <div className="section-heading">
             <span className="section-kicker">Projetos</span>
             <h2>Exemplos de soluções aplicadas em cenários reais</h2>
           </div>
           <div className="projects-grid">
-            {projects.map((project) => (
-              <article key={project.title} className="project-card">
+            {projects.map((project, idx) => (
+              <article key={project.title} className={`project-card reveal reveal-delay-${(idx % 3) + 1}`}>
+                <span style={{ fontSize: '1.5rem', color: 'var(--accent)', marginBottom: '0.5rem', display: 'block' }}>{project.icon}</span>
                 <h3>{project.title}</h3>
                 <p>{project.summary}</p>
                 <strong>{project.result}</strong>
@@ -325,13 +371,13 @@ function App() {
           </div>
         </section>
 
-        <section id="stack" className="content-section stack-section">
+        <section id="stack" className="content-section stack-section reveal">
           <div className="section-heading">
             <span className="section-kicker">Stack</span>
             <h2>Tecnologias que sustentam entregas rápidas e consistentes</h2>
           </div>
 
-          <div className="stack-group">
+          <div className="stack-group reveal reveal-delay-1">
             <span className="stack-group-label">Linguagens &amp; Frameworks</span>
             <div className="stack-cloud">
               {techStack.map((tech) => (
@@ -345,7 +391,7 @@ function App() {
             </div>
           </div>
 
-          <div className="stack-group">
+          <div className="stack-group reveal reveal-delay-2">
             <span className="stack-group-label">Ferramentas</span>
             <div className="stack-cloud">
               {toolStack.map((tool) => (
@@ -360,7 +406,7 @@ function App() {
           </div>
         </section>
 
-        <section id="sobre" className="content-section story-section">
+        <section id="sobre" className="content-section story-section reveal">
           <div className="section-heading">
             <span className="section-kicker">Storytelling</span>
             <h2>Seu projeto merece mais do que só código</h2>
@@ -370,33 +416,33 @@ function App() {
           </p>
         </section>
 
-        <section id="oferta" className="content-section offer-section">
+        <section id="oferta" className="content-section offer-section reveal">
           <div className="section-heading">
             <span className="section-kicker">Oferta</span>
             <h2>Criação de landing page profissional em até 5 dias</h2>
           </div>
           <ul className="offer-list" aria-label="Benefícios da oferta">
-            {offerItems.map((item) => (
-              <li key={item}>{item}</li>
+            {offerItems.map((item, idx) => (
+              <li key={item} className={`reveal reveal-delay-${(idx % 3) + 1}`}>{item}</li>
             ))}
           </ul>
           <div className="inline-cta">
-            <a className="primary-action" href={profile.whatsapp} target="_blank" rel="noreferrer">Quero solicitar orçamento</a>
+            <a className="primary-action" href={whatsappUrl} target="_blank" rel="noreferrer">Quero solicitar orçamento</a>
           </div>
         </section>
 
-        <section className="content-section contact-section">
+        <section className="content-section contact-section reveal">
           <div>
             <span className="section-kicker">Contato</span>
             <h2>Pronto para tirar sua ideia do papel com velocidade e qualidade?</h2>
           </div>
-          <a className="primary-action" href={profile.whatsapp} target="_blank" rel="noreferrer">
+          <a className="primary-action" href={whatsappUrl} target="_blank" rel="noreferrer">
             Falar comigo no WhatsApp
           </a>
         </section>
       </main>
 
-      <a className="mobile-cta" href={profile.whatsapp} target="_blank" rel="noreferrer">
+      <a className="mobile-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
         Falar no WhatsApp
       </a>
 
